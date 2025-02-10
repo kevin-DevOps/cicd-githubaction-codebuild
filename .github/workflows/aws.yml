@@ -84,13 +84,13 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition.json
-        container-name: ecs-devops-sandbox
+        container-name: EcsDevopsSandboxContainer
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy to Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: EcsDevopsSandboxCdkStack-EcsDevopsSandboxService8A075D5B-pYXj89FhewOT
-        cluster: EcsDevopsSandboxCdkStack-EcsDevopsSandboxCluster465A52C4-qRMJAuU4IlQ2
+        service: EcsDevopsSandboxCdkStack-EcsDevopsSandboxService8A075D5B-438268VcTX6O
+        cluster: EcsDevopsSandboxCdkStack-EcsDevopsSandboxCluster465A52C4-zvizDQ59ro5z
         wait-for-service-stability: true
