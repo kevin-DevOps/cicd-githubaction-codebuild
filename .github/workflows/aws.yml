@@ -71,7 +71,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: cdk-hnb659fds-container-assets-851725614145-ap-southeast-1  # Cập nhật tên đúng
+        ECR_REPOSITORY: ecs-devops-sandbox-repository
         IMAGE_TAG: ${{ github.sha }}
 
       run: |
@@ -91,6 +91,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ecs-devops-sandbox-service
-        cluster: ecs-devops-sandbox-cluster
+        service: EcsDevopsSandboxCdkStack-EcsDevopsSandboxService8A075D5B-pYXj89FhewOT
+        cluster: EcsDevopsSandboxCdkStack-EcsDevopsSandboxCluster465A52C4-qRMJAuU4IlQ2
         wait-for-service-stability: true
